@@ -8,7 +8,7 @@ import json
 # 禁用SSL警告
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-# 更新课程信息 - 包含clazzType参数（示例ID，实际使用时替换）
+# 课程信息（示例ID，实际使用时替换）
 COURSES = [
   {
     "clazzId": "202520262ae2221205401",
@@ -139,10 +139,9 @@ def main():
     
     start_time = get_current_time()
     print("="*60)
-    print("吉林大学精准抢课脚本 (全课程并行版)")
+    print("吉林大学抢课脚本 (全课程并行版)")
     print(f"开始时间: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print(f"目标课程: {len(COURSES)}门")
-    print(f"批次ID: [请填写]")
     print("="*60)
     
     threads = []
@@ -175,12 +174,11 @@ if __name__ == "__main__":
     print("⚠️  请确保已替换以下内容：")
     print("   - HEADERS 中的 Authorization 和 Cookie")
     print("   - batchId")
-    print("   - COURSES 中的 secretVal（如需）")
+    print("   - COURSES 中的 secretVal")
     print("!"*60)
     
     TARGET_TIME = "2025-12-24 09:00:00"  # 根据实际选课时间修改
     print(f"\n🕒 等待选课开始... (目标时间: {TARGET_TIME})")
-    print("提示: 可提前10-20秒启动脚本")
     
     while True:
         current_dt = datetime.datetime.now()
